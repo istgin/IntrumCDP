@@ -17,7 +17,8 @@ function getClientIp() {
     } else {
         $ipaddress = 'UNKNOWN';
     }
-    return $ipaddress;
+    $ipd = explode(",", $ipaddress);
+    return trim(end($ipd));
 }
 
 function mapPaymentMethodToSpecs($ShopwarePaymentName) {
