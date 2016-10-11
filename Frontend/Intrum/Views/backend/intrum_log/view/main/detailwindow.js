@@ -12,7 +12,7 @@ Ext.define('Shopware.apps.IntrumLog.view.main.Detailwindow', {
 	extend: 'Enlight.app.Window',
     title: '{s name=window_detail_title}API-Log Details{/s}',
     cls: Ext.baseCSSPrefix + 'detail-window',
-    alias: 'widget.IntrumApilogMainDetailWindow',
+    alias: 'widget.moptPayoneApilogMainDetailWindow',
     border: false,
     autoShow: true,
     layout: 'border',
@@ -31,7 +31,7 @@ Ext.define('Shopware.apps.IntrumLog.view.main.Detailwindow', {
         var me = this;
         me.title = 'API-Log Details zu ID ' + me.itemSelected;
         me.items = [{
-            xtype: 'IntrumApilogMainDetail',
+            xtype: 'moptPayoneApilogMainDetail',
             itemSelected: me.itemSelected,
         }];
 

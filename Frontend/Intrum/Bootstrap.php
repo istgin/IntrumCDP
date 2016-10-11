@@ -103,7 +103,7 @@ class Shopware_Plugins_Frontend_Intrum_Bootstrap extends Shopware_Components_Plu
         }
 
 
-        $parent = $this->Menu()->findOneBy(array('id' => 65));
+        $parent = $this->Menu()->findOneBy('label', 'Zahlungen');
         $item   = $this->createMenuItem(array(
             'label'  => 'Intrum',
             'class'  => 'intrumicon',
@@ -122,7 +122,7 @@ class Shopware_Plugins_Frontend_Intrum_Bootstrap extends Shopware_Components_Plu
         ));
 
         $form = $this->Form();
-        $parent = $this->Forms()->findOneBy(array('name' => 'Frontend'));
+        $parent = $this->Forms()->findOneBy(array('name' => 'Interface'));
         $form->setParent($parent);
         $form->setElement('button', 'button1', array(
             'label' => '<b style="color:green;">Intrum CDP Credentials</b>',
@@ -379,7 +379,7 @@ CHANGE COLUMN `xml_responce` `xml_responce` TEXT CHARACTER SET 'utf8' COLLATE 'u
             'link' => 'http://www.intrum.com',
             'author' =>  'Intrum.com',
             'copyright' =>  'Intrum.com 2015',
-            'version' =>  '1.4.0'
+            'version' =>  '1.3.0'
         );
     }
 

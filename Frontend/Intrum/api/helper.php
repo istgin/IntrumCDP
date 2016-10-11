@@ -84,12 +84,13 @@ function CreateShopWareShopRequest($user, $billing, $shipping, $totalAmount, Enl
 	} else {
 		$request->setLanguage('de');	
 	}
-    $request->setRequestId(uniqid($billing["id"]."_"));
-    $reference = $billing["id"];
+
+    $request->setRequestId(uniqid((String)$user['billingaddress']['customerBillingId']."_"));
+    $reference = $user['billingaddress']['customerBillingId'];
     if (empty($reference)) {
-        $request->setCustomerReference("guest_".$billing["id"]);
+        $request->setCustomerReference("guest_".$user['billingaddress']['customerBillingId']);
     } else {
-        $request->setCustomerReference($billing["id"]);
+        $request->setCustomerReference($user['billingaddress']['customerBillingId']);
     }
     $request->setFirstName((String)$billing['firstname']);
     $request->setLastName((String)$billing['lastname']);
@@ -160,7 +161,7 @@ function CreateShopWareShopRequest($user, $billing, $shipping, $totalAmount, Enl
     $request->setExtraInfo($extraInfo);
 
     $extraInfo["Name"] = 'CONNECTIVTY_MODULE';
-    $extraInfo["Value"] = 'Intrum ShopWare 5.2.X module 1.4.0';
+    $extraInfo["Value"] = 'Intrum ShopWare module 1.3.0';
     $request->setExtraInfo($extraInfo);	
 
     return $request;
@@ -192,14 +193,13 @@ function CreateShopWareOrderRequest($user, $billing, $shipping, \Shopware\Models
 		$request->setLanguage('de');	
 	}
 
-    $request->setRequestId(uniqid($billing["id"]."_"));
-    $reference = $billing["id"];
+    $request->setRequestId(uniqid((String)$user['billingaddress']['customerBillingId']."_"));
+    $reference = $user['billingaddress']['customerBillingId'];
     if (empty($reference)) {
-        $request->setCustomerReference("guest_".$billing["id"]);
+        $request->setCustomerReference("guest_".$user['billingaddress']['customerBillingId']);
     } else {
-        $request->setCustomerReference($billing["id"]);
+        $request->setCustomerReference($user['billingaddress']['customerBillingId']);
     }
-    
     $request->setFirstName((String)$billing['firstname']);
     $request->setLastName((String)$billing['lastname']);
     $request->setFirstLine(trim((String)$billing['street'].' '.$billing['streetnumber']));
@@ -277,7 +277,7 @@ function CreateShopWareOrderRequest($user, $billing, $shipping, \Shopware\Models
     $request->setExtraInfo($extraInfo);
 
     $extraInfo["Name"] = 'CONNECTIVTY_MODULE';
-    $extraInfo["Value"] = 'Intrum ShopWare 5.2.X module 1.4.0';
+    $extraInfo["Value"] = 'Intrum ShopWare module 1.3.0';
     $request->setExtraInfo($extraInfo);	
 
     return $request;
