@@ -162,7 +162,7 @@ function CreateShopWareShopRequest($user, $billing, $shipping, $totalAmount, Enl
     $request->setExtraInfo($extraInfo);
 
     $extraInfo["Name"] = 'CONNECTIVTY_MODULE';
-    $extraInfo["Value"] = 'Intrum ShopWare module 1.3.0';
+    $extraInfo["Value"] = 'Intrum ShopWare 5.1.X module 1.3.1';
     $request->setExtraInfo($extraInfo);	
 
     return $request;
@@ -278,7 +278,7 @@ function CreateShopWareOrderRequest($user, $billing, $shipping, \Shopware\Models
     $request->setExtraInfo($extraInfo);
 
     $extraInfo["Name"] = 'CONNECTIVTY_MODULE';
-    $extraInfo["Value"] = 'Intrum ShopWare module 1.3.0';
+    $extraInfo["Value"] = 'Intrum ShopWare 5.1.X module 1.3.1';
     $request->setExtraInfo($extraInfo);	
 
     return $request;
