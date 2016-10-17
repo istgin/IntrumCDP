@@ -99,6 +99,15 @@ function CreateShopWareShopRequest($user, $billing, $shipping, $totalAmount, Enl
     $request->setPostCode((String)$billing['zipcode']);
     $request->setTown((String)$billing['city']);
     $request->setFax((String)$billing['fax']);
+	
+	$request->setGender(0);
+	if (!empty($billing['salutation'])) {
+		if (strtolower($billing['salutation']) == 'ms') {
+			$request->setGender(2);	
+		} else if (strtolower($billing['salutation']) == 'mr') {
+			$request->setGender(1);	
+		}	
+	}
 
 	if (!empty($billing['birthday']) && substr($billing['birthday'], 0, 4) != '0000') {
 		$request->setDateOfBirth((String)$billing['birthday']);		
@@ -208,6 +217,15 @@ function CreateShopWareOrderRequest($user, $billing, $shipping, \Shopware\Models
     $request->setPostCode((String)$billing['zipcode']);
     $request->setTown((String)$billing['city']);
     $request->setFax((String)$billing['fax']);
+	
+	$request->setGender(0);
+	if (!empty($billing['salutation'])) {
+		if (strtolower($billing['salutation']) == 'ms') {
+			$request->setGender(2);	
+		} else if (strtolower($billing['salutation']) == 'mr') {
+			$request->setGender(1);	
+		}	
+	}
 	
 	if (!empty($billing['birthday']) && substr($billing['birthday'], 0, 4) != '0000') {
 		$request->setDateOfBirth((String)$billing['birthday']);		
