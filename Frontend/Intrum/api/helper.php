@@ -109,8 +109,8 @@ function CreateShopWareShopRequest($user, $billing, $shipping, $totalAmount, Enl
 		}	
 	}
 
-	if (!empty($billing['birthday']) && substr($billing['birthday'], 0, 4) != '0000') {
-		$request->setDateOfBirth((String)$billing['birthday']);		
+	if (!empty($user["additional"]["user"]['birthday']) && substr($user["additional"]["user"]['birthday'], 0, 4) != '0000') {
+		$request->setDateOfBirth((String)$user["additional"]["user"]['birthday']);		
 	}
 
     $request->setTelephonePrivate((String)$billing['phone']);
@@ -170,7 +170,7 @@ function CreateShopWareShopRequest($user, $billing, $shipping, $totalAmount, Enl
     $request->setExtraInfo($extraInfo);
 
     $extraInfo["Name"] = 'CONNECTIVTY_MODULE';
-    $extraInfo["Value"] = 'Intrum ShopWare 5.2.X module 1.4.1';
+    $extraInfo["Value"] = 'Intrum ShopWare 5.2.X module 1.4.2';
     $request->setExtraInfo($extraInfo);	
 
     return $request;
@@ -227,8 +227,8 @@ function CreateShopWareOrderRequest($user, $billing, $shipping, \Shopware\Models
 		}	
 	}
 	
-	if (!empty($billing['birthday']) && substr($billing['birthday'], 0, 4) != '0000') {
-		$request->setDateOfBirth((String)$billing['birthday']);		
+	if (!empty($user["additional"]["user"]['birthday']) && substr($user["additional"]["user"]['birthday'], 0, 4) != '0000') {
+		$request->setDateOfBirth((String)$user["additional"]["user"]['birthday']);		
 	}
 
     $request->setTelephonePrivate((String)$billing['phone']);
@@ -296,7 +296,7 @@ function CreateShopWareOrderRequest($user, $billing, $shipping, \Shopware\Models
     $request->setExtraInfo($extraInfo);
 
     $extraInfo["Name"] = 'CONNECTIVTY_MODULE';
-    $extraInfo["Value"] = 'Intrum ShopWare 5.2.X module 1.4.1';
+    $extraInfo["Value"] = 'Intrum ShopWare 5.2.X module 1.4.2';
     $request->setExtraInfo($extraInfo);	
 
     return $request;
